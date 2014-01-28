@@ -1,0 +1,57 @@
+
+    Receipt for Pizza Heaven!<br>
+
+  
+<?
+  $appetizer = "Cheese Stix";
+  $entree = $_GET["entree"];
+  $dessert = "Cheesecake"; //that is a LOT of cheese!!
+
+//selectors for each drink with chosen entree; prices for drinks and entrees
+  switch ($entree) {
+   case "Steak":
+    $drink = "Root beer";
+    $price = 14;
+    $drink_price = 3;
+    break;
+   case "Salmon":
+    $drink = "Merlot";
+    $price = 13;
+    $drink_price = 8;
+    break;
+   case "Pork":
+    $drink = "Miller Lite";
+    $price = 12;
+    $drink_price = 3;
+    break;
+   case "Chicken":
+    $drink = "Sprite";
+    $price = 10;
+    $drink_price = 3;
+  }
+  $cheese_stix = 5.99;
+  $cheese_pizza = 9.99;
+  $cheesecake = 6.99;
+  
+  $tax = 0.08; 
+  $tip = 0.15;
+  
+  $subtotal = $cheese_stix + $price + $cheesecake + $drink_price; //add the menu item amounts for total before tax and tip
+  $total = $subtotal + ($subtotal * $tax) + ($subtotal * $tip); //add subtotal with the tax and tip amount
+?>
+
+<ul>
+<br/>
+  <!--change to add price and drink price to specify variety-->
+  <li><? echo $appetizer." ".$cheese_stix;?></li>
+  <li><? echo $entree." ".$price;?></li>
+  <li><? echo $dessert." ".$cheesecake;?></li>
+  <li><? echo $drink." ".$drink_price;?></li>
+  <br><br>
+  <li>Subotal $<? echo $subtotal;?></li>
+  <li>Sales tax <? echo $tax;?></li>
+  <li><? echo $tip." gratuity applied (percentage)"?></li>
+  <br>
+  <li>Total due is <? echo $total;?></li>
+  
+</ul>
