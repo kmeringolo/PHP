@@ -1,4 +1,3 @@
-
     Receipt for Pizza Heaven!<br>
 
   
@@ -20,3 +19,4 @@ $drink_choice = select_beverage($dinner);
 echo "Try the ".$drink_choice;
 
 ?>
+//HTML form
