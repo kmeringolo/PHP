@@ -1,58 +1,44 @@
+<body>
+<h3>Pig Latin Exercise</h3>
+
+<form method="GET" action="temp3.php">
+Enter a valid english word
+<input type="text" size="25" name="word" value="" />
+</form>
+
 <?php
 
-$schedule = array("Monday" => array("9am" => "drink coffee",
-                       "10am" => "meeting",
-                       "11am" => "another meeting",
-                       "12pm" => "lunch",
-                       "1pm" => "meeting",
-                       "2pm" => "create workflow diagram",
-                       "3pm" => "training",
-                       "4pm" => "close out day",
-                       "5pm" => "go to gym"),
-                  "Tuesday" => array("9am" => "sleep in",
-                                     "10am"=> "go to gym",
-                                     "11am" => "brunch",
-                                     "12pm" => "mimosas",
-                                     "1pm" => "watch soap operas",
-                                     "2pm" => "watch Ellen",
-                                     "3pm" => "catch up on DVR",
-                                     "4pm" => "call family",
-                                     "5pm" => "happy hour!"),
-                  "Wednesday" => array("9am" => "drink coffee",
-                       "10am" => "meeting",
-                       "11am" => "another meeting",
-                       "12pm" => "lunch",
-                       "1pm" => "meeting",
-                       "2pm" => "create workflow diagram",
-                       "3pm" => "training",
-                       "4pm" => "close out day",
-                       "5pm" => "go to gym"),
-                  "Thursday" => array("9am" => "sleep in",
-                                     "10am"=> "go to gym",
-                                     "11am" => "brunch",
-                                     "12pm" => "mimosas",
-                                     "1pm" => "watch soap operas",
-                                     "2pm" => "watch Ellen",
-                                     "3pm" => "catch up on DVR",
-                                     "4pm" => "call family",
-                                     "5pm" => "happy hour!"),
-                  "Friday" => array("9am" => "drink coffee",
-                       "10am" => "meeting",
-                       "11am" => "another meeting",
-                       "12pm" => "lunch",
-                       "1pm" => "meeting",
-                       "2pm" => "create workflow diagram",
-                       "3pm" => "training",
-                       "4pm" => "close out day",
-                       "5pm" => "go to gym"));
-                       
+//function for translating words
+function vowel($myword) {
+//regex for if word starts with a vowel
+  $regex_v = "^(A|a|E|e|I|i|O|o|U|u)";
+  //$regex for if word starts with 'qu'
+  $regex_qu = "^qu|Qu";
+  //regex for if word starts with any combination of consonants
+  $regex_c = "^[B|C|D|F|G|H|J|K|L|M|N|P|Q|R|S|T|V|W|X|W|Y|Z|b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]+";  
 
-foreach ($schedule as $day => $day_schedule) {
-  echo $day."<br/>";
-  foreach ($day_schedule as $schedule => $activity) {
-    echo $schedule.": ".$activity.".</br>";
-
+  if (preg_match("/$regex_v/", $myword)) {
+    echo $myword."ay";
+  }
+  //regex for words starting with qu
+  else {
+    if (preg_match("/$regex_qu/", $myword)) {
+      $word_qu = substr($myword,2);
+      echo $word_qu.$myword[0].$myword[1]."ay";
     }
+    //find the match and save as $matches
+    //replace the all starting consonants with nothing
+    //output the word with the match after, tacking on the 'ay'
+    else {
+      if (preg_match("/$regex_c/", $myword, $matches)) {
+        $consonants = "^[B|C|D|F|G|H|J|K|L|M|N|P|Q|R|S|T|V|W|X|W|Y|Z|b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]+";
+        $word_c = preg_replace("/$consonants/", "", $myword);
+        echo $word_c.$matches[0]."ay";
+      }
+    }
+  }
 }
 
+$word = $_GET["word"];
+vowel($word);
 ?>
