@@ -1,0 +1,22 @@
+
+    Receipt for Pizza Heaven!<br>
+
+  
+<?
+function select_beverage($dinner) {
+  
+  if ($dinner == "Steak") {
+    $drink = "Root beer";
+  }
+  else if ($dinner == "Salmon") {
+    $drink = "Merlot";
+  }
+  echo $drink." goes well with ".$dinner."<br>";
+  return $drink;
+  
+}
+$dinner = $_GET["entree"];
+$drink_choice = select_beverage($dinner);
+echo "Try the ".$drink_choice;
+
+?>
