@@ -1,0 +1,58 @@
+<?php
+
+$schedule = array("Monday" => array("9am" => "drink coffee",
+                       "10am" => "meeting",
+                       "11am" => "another meeting",
+                       "12pm" => "lunch",
+                       "1pm" => "meeting",
+                       "2pm" => "create workflow diagram",
+                       "3pm" => "training",
+                       "4pm" => "close out day",
+                       "5pm" => "go to gym"),
+                  "Tuesday" => array("9am" => "sleep in",
+                                     "10am"=> "go to gym",
+                                     "11am" => "brunch",
+                                     "12pm" => "mimosas",
+                                     "1pm" => "watch soap operas",
+                                     "2pm" => "watch Ellen",
+                                     "3pm" => "catch up on DVR",
+                                     "4pm" => "call family",
+                                     "5pm" => "happy hour!"),
+                  "Wednesday" => array("9am" => "drink coffee",
+                       "10am" => "meeting",
+                       "11am" => "another meeting",
+                       "12pm" => "lunch",
+                       "1pm" => "meeting",
+                       "2pm" => "create workflow diagram",
+                       "3pm" => "training",
+                       "4pm" => "close out day",
+                       "5pm" => "go to gym"),
+                  "Thursday" => array("9am" => "sleep in",
+                                     "10am"=> "go to gym",
+                                     "11am" => "brunch",
+                                     "12pm" => "mimosas",
+                                     "1pm" => "watch soap operas",
+                                     "2pm" => "watch Ellen",
+                                     "3pm" => "catch up on DVR",
+                                     "4pm" => "call family",
+                                     "5pm" => "happy hour!"),
+                  "Friday" => array("9am" => "drink coffee",
+                       "10am" => "meeting",
+                       "11am" => "another meeting",
+                       "12pm" => "lunch",
+                       "1pm" => "meeting",
+                       "2pm" => "create workflow diagram",
+                       "3pm" => "training",
+                       "4pm" => "close out day",
+                       "5pm" => "go to gym"));
+                       
+
+foreach ($schedule as $day => $day_schedule) {
+  echo $day."<br/>";
+  foreach ($day_schedule as $schedule => $activity) {
+    echo $schedule.": ".$activity.".</br>";
+
+    }
+}
+
+?>
